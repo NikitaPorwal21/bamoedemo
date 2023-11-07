@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_1C792953-80DB-4B32-99EB-25FBE32BAF9E" name="CountryDetail" expressionLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="https://github.com/kiegroup/drools/kie-dmn/_A4BCA8B8-CF08-433F-93B2-A2598F19ECFF">
   <dmn:extensionElements/>
-  <dmn:itemDefinition id="_83AFACE0-6A4F-4757-A62D-7CC1F7EF7F22" name="countryCode" isCollection="false">
+  <dmn:itemDefinition id="_83AFACE0-6A4F-4757-A62D-7CC1F7EF7F22" name="country" isCollection="false">
     <dmn:typeRef>string</dmn:typeRef>
   </dmn:itemDefinition>
   <dmn:itemDefinition id="_54F8F461-5BDE-4161-A8D3-92CC419F5271" name="CountryDetail" isCollection="false">
-    <dmn:itemComponent id="_A9DB2955-B6F2-4B5D-8893-AE30DBAF68B2" name="countryCode" isCollection="false">
+    <dmn:itemComponent id="_A9DB2955-B6F2-4B5D-8893-AE30DBAF68B2" name="country" isCollection="false">
       <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
-    <dmn:itemComponent id="_F67BA415-FC39-4B47-83E5-B0E474EEB4F2" name="countryTasks" isCollection="true">
+    <dmn:itemComponent id="_F67BA415-FC39-4B47-83E5-B0E474EEB4F2" name="steps" isCollection="true">
       <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
   </dmn:itemDefinition>
@@ -20,23 +20,23 @@
       <dmn:typeRef>string</dmn:typeRef>
     </dmn:itemComponent>
   </dmn:itemDefinition>
-  <dmn:inputData id="_6D1A5183-8F65-4ABC-ACA5-B311DB3DC2A9" name="countryCode">
+  <dmn:inputData id="_6D1A5183-8F65-4ABC-ACA5-B311DB3DC2A9" name="country">
     <dmn:extensionElements/>
-    <dmn:variable id="_E64EC5A1-09CD-4812-AE4D-E9B8551D3819" name="countryCode" typeRef="string"/>
+    <dmn:variable id="_E64EC5A1-09CD-4812-AE4D-E9B8551D3819" name="country" typeRef="string"/>
   </dmn:inputData>
-  <dmn:decision id="_7DE6467C-F2E9-4A88-A5FA-70C451C6EEC2" name="Country">
+  <dmn:decision id="_7DE6467C-F2E9-4A88-A5FA-70C451C6EEC2" name="countrySteps">
     <dmn:extensionElements/>
-    <dmn:variable id="_90C71FFE-2286-419B-9AAC-68F5345630E8" name="Country" typeRef="CountryDetail"/>
+    <dmn:variable id="_90C71FFE-2286-419B-9AAC-68F5345630E8" name="countrySteps" typeRef="CountryDetail"/>
     <dmn:informationRequirement id="_A8B3BA0C-C7B3-4485-9B08-16B6F356C009">
       <dmn:requiredInput href="#_6D1A5183-8F65-4ABC-ACA5-B311DB3DC2A9"/>
     </dmn:informationRequirement>
     <dmn:context id="_E5978A5A-64A5-417C-A632-86AEB6297457">
       <dmn:contextEntry>
-        <dmn:variable id="_60D3979E-BD92-464E-A8C6-265617BF1F4E" name="Country" typeRef="CountryDetail"/>
+        <dmn:variable id="_60D3979E-BD92-464E-A8C6-265617BF1F4E" name="countrySteps" typeRef="CountryDetail"/>
         <dmn:decisionTable id="_92C39874-8C78-4EFC-8D72-13D677D1C5A4" hitPolicy="FIRST" preferredOrientation="Rule-as-Row">
           <dmn:input id="_F3B4D0AB-7F0F-4E53-9194-F5E1BEC7B645">
             <dmn:inputExpression id="_D4BE2F63-57C2-4A0C-A9D5-CED4DDCF5C35" typeRef="string">
-              <dmn:text>countryCode</dmn:text>
+              <dmn:text>country</dmn:text>
             </dmn:inputExpression>
           </dmn:input>
           <dmn:output id="_D7A8AAE3-21A9-41A1-B03C-A8189ED5EE0E"/>
@@ -78,7 +78,7 @@
       </dmn:contextEntry>
       <dmn:contextEntry>
         <dmn:literalExpression id="_156D346E-E818-45B6-936F-00523FF2F41E">
-          <dmn:text>Country</dmn:text>
+          <dmn:text>countrySteps</dmn:text>
         </dmn:literalExpression>
       </dmn:contextEntry>
     </dmn:context>
@@ -90,16 +90,16 @@
           <kie:ComponentWidths dmnElementRef="_E5978A5A-64A5-417C-A632-86AEB6297457">
             <kie:width>50</kie:width>
             <kie:width>120</kie:width>
-            <kie:width>738</kie:width>
+            <kie:width>370</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_92C39874-8C78-4EFC-8D72-13D677D1C5A4">
             <kie:width>50</kie:width>
-            <kie:width>223</kie:width>
-            <kie:width>263</kie:width>
-            <kie:width>182</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_156D346E-E818-45B6-936F-00523FF2F41E">
-            <kie:width>738</kie:width>
+            <kie:width>370</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -118,12 +118,12 @@
           <dmndi:StrokeColor red="0" green="0" blue="0"/>
           <dmndi:FontColor red="0" green="0" blue="0"/>
         </dmndi:DMNStyle>
-        <dc:Bounds x="484" y="128" width="100" height="50"/>
+        <dc:Bounds x="484" y="123" width="100" height="50"/>
         <dmndi:DMNLabel/>
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="dmnedge-drg-_A8B3BA0C-C7B3-4485-9B08-16B6F356C009" dmnElementRef="_A8B3BA0C-C7B3-4485-9B08-16B6F356C009">
         <di:waypoint x="303.29906542056074" y="152.68421052631578"/>
-        <di:waypoint x="484" y="153"/>
+        <di:waypoint x="484" y="148"/>
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
     <dmndi:DMNDiagram id="_7C1F5598-66AA-4A91-BFB3-DE6526363FA4" name="new-diagram">
@@ -132,16 +132,16 @@
           <kie:ComponentWidths dmnElementRef="_E5978A5A-64A5-417C-A632-86AEB6297457">
             <kie:width>50</kie:width>
             <kie:width>120</kie:width>
-            <kie:width>738</kie:width>
+            <kie:width>370</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_92C39874-8C78-4EFC-8D72-13D677D1C5A4">
             <kie:width>50</kie:width>
-            <kie:width>223</kie:width>
-            <kie:width>263</kie:width>
-            <kie:width>182</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>100</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_156D346E-E818-45B6-936F-00523FF2F41E">
-            <kie:width>738</kie:width>
+            <kie:width>370</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
